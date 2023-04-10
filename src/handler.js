@@ -65,7 +65,7 @@ const getNoteByIdHandler = (request, h) => {
 const editNoteByIdHandler = (request, h) => {
     const { id } = request.params;
     const { title, tags, body } = request.payload;
-    const updateAt = new Date().toISOString();
+    const updatedAt = new Date().toISOString();
     const index = notes.findIndex((note) => note.id === id);
 
     if (index !== -1) {
@@ -74,7 +74,7 @@ const editNoteByIdHandler = (request, h) => {
             title,
             tags,
             body,
-            updateAt,
+            updatedAt,
         };
 
         const response = h.response({
